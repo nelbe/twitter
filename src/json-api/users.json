@@ -1,0 +1,80 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Bob",
+            "followers": [
+                {
+                    "id": 1,
+                    "name": "Bob"
+                }
+            ],
+            "following": [
+                {
+                    "id": 2,
+                    "name": "Alice"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Alice",
+            "followers": [
+            ],
+            "following": [
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Ben",
+            "followers": [
+            ],
+            "following": [
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Beatríz",
+            "followers": [
+            ],
+            "following": [
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Jenny",
+            "followers": [
+            ],
+            "following": [
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Me",
+            "followers": [
+                {
+                    "id": 1,
+                    "name": "Bob"
+                },
+                {
+                    "id": 2,
+                    "name": "Alice"
+                }
+            ],
+            "following": [
+                {
+                    "id": 4,
+                    "name": "Beatriz"
+                },
+                {
+                    "id": 3,
+                    "name": "Ben"
+                },
+                {
+                    "id": 5,
+                    "name": "Jenny"
+                }
+            ]
+        }
+    ]
+}
