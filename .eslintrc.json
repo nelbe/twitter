@@ -33,7 +33,6 @@
       "linebreak-style": ["error", "unix"],
       "quotes": ["error", "single"],
       "semi": ["error", "always"],
-      "no-console": ["error", { "allow": ["warn", "error"] }],
       "no-duplicate-imports": "error",
       "no-unused-vars": "error",
       "no-dupe-args": "error",
