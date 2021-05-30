@@ -7,18 +7,18 @@ import messages from '../json-api/messages';
 import { Button } from '../components/common/Button';
 
 export function Dashboard() {
-    const [followers, setFollowers] = useState([]);
+    const [unfollowing, setUnfollowing] = useState([]);
     const [following, setFollowing] = useState([]);
     const [newMessage, setNewMessage] = useState([]);
 
     useEffect(() => {
         users.users.map((user) => {
             if (user.name === 'Me') {
-                user.followers.map((f) => {
-                    console.log(f);
-                });
-                setFollowers(user.followers);
-                setFollowing(user.following);
+                // user.unfollow.map((f) => {
+                //     console.log(f);
+                // });
+                setUnfollowing(user.following);
+                setFollowing(user.unfollowing);
             }
             return user;
         });
@@ -29,11 +29,23 @@ export function Dashboard() {
         console.log(message);
     };
 
+    const updateFollowing = (e) => {
+        unfollowing.push(e);
+        const unfollow = following.filter((item) => item.id !== e.id);
+        console.log(unfollow);
+        setFollowing(unfollow);
+        setUnfollowing(unfollowing);
+    };
+
+    const updateFollow = (e) => {
+        console.log(e);
+    };
+
     return (
         <div className='relative flex w-full h-full min-w-1280 mt-3'>
             <div className='w-3/12 h-500 pl-3'>
-                {followers ? <Following styleClass='mb-6' list={followers} title='Following'></Following> : ''}
-                {following ? <Follow title='Follow' list={following} ></Follow> : ''}
+                { unfollowing ? <Following updateFollowing={(e) => updateFollowing(e)} styleClass='mb-6' list={unfollowing} title='Following'></Following> : ''}
+                { following ? <Follow updateFollow={(e) => updateFollow(e)} title='Follow' list={following} ></Follow> : ''}
             </div>
             <div className='w-9/12 h-500 pl-6 pr-6'>
                 {messages ? <Timeline title='Timeline' messages={messages.messages}></Timeline> : ''}

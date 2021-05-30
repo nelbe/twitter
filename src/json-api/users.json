@@ -3,13 +3,13 @@
         {
             "id": 1,
             "name": "Bob",
-            "followers": [
+            "following": [
                 {
                     "id": 1,
                     "name": "Bob"
                 }
             ],
-            "following": [
+            "unfollowing": [
                 {
                     "id": 2,
                     "name": "Alice"
@@ -19,39 +19,39 @@
         {
             "id": 2,
             "name": "Alice",
-            "followers": [
-            ],
             "following": [
+            ],
+            "unfollowing": [
             ]
         },
         {
             "id": 3,
             "name": "Ben",
-            "followers": [
-            ],
             "following": [
+            ],
+            "unfollowing": [
             ]
         },
         {
             "id": 4,
             "name": "Beatríz",
-            "followers": [
-            ],
             "following": [
+            ],
+            "unfollowing": [
             ]
         },
         {
             "id": 5,
             "name": "Jenny",
-            "followers": [
-            ],
             "following": [
+            ],
+            "unfollowing": [
             ]
         },
         {
             "id": 6,
             "name": "Me",
-            "followers": [
+            "following": [
                 {
                     "id": 1,
                     "name": "Bob"
@@ -61,7 +61,7 @@
                     "name": "Alice"
                 }
             ],
-            "following": [
+            "unfollowing": [
                 {
                     "id": 4,
                     "name": "Beatriz"
