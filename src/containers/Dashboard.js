@@ -7,21 +7,14 @@ import messages from '../json-api/messages';
 import { Button } from '../components/common/Button';
 
 export function Dashboard() {
-    const [unfollowing, setUnfollowing] = useState([]);
-    const [following, setFollowing] = useState([]);
+    const unfollowingUsers = users.users[5].unfollowing;
+    const followingUsers = users.users[5].following;
+    const [unfollowing, setUnfollowing] = useState(unfollowingUsers);
+    const [following, setFollowing] = useState(followingUsers);
     const [newMessage, setNewMessage] = useState([]);
 
     useEffect(() => {
-        users.users.map((user) => {
-            if (user.name === 'Me') {
-                // user.unfollow.map((f) => {
-                //     console.log(f);
-                // });
-                setUnfollowing(user.following);
-                setFollowing(user.unfollowing);
-            }
-            return user;
-        });
+        // The correct way is to use and server service to get the users and set the state to useEffect
     });
 
     const updateMessage = (message) => {
@@ -32,20 +25,22 @@ export function Dashboard() {
     const updateFollowing = (e) => {
         unfollowing.push(e);
         const unfollow = following.filter((item) => item.id !== e.id);
-        console.log(unfollow);
         setFollowing(unfollow);
         setUnfollowing(unfollowing);
     };
 
     const updateFollow = (e) => {
-        console.log(e);
+        following.push(e);
+        const follow = unfollowing.filter((item) => item.id !== e.id);
+        setFollowing(following);
+        setUnfollowing(follow);
     };
 
     return (
         <div className='relative flex w-full h-full min-w-1280 mt-3'>
             <div className='w-3/12 h-500 pl-3'>
-                { unfollowing ? <Following updateFollowing={(e) => updateFollowing(e)} styleClass='mb-6' list={unfollowing} title='Following'></Following> : ''}
-                { following ? <Follow updateFollow={(e) => updateFollow(e)} title='Follow' list={following} ></Follow> : ''}
+                { following ? <Following updateFollowing={(e) => updateFollowing(e)} styleClass='mb-6' list={following} title='Following'></Following> : ''}
+                { unfollowing ? <Follow updateFollow={(e) => updateFollow(e)} title='Follow' list={unfollowing} ></Follow> : ''}
             </div>
             <div className='w-9/12 h-500 pl-6 pr-6'>
                 {messages ? <Timeline title='Timeline' messages={messages.messages}></Timeline> : ''}
