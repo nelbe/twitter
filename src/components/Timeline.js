@@ -26,5 +26,5 @@ export function Timeline({ title, messages }) {
 
 Timeline.propTypes = {
     title: PropTypes.string,
-    messages: PropTypes.object
+    messages: PropTypes.array
 };
